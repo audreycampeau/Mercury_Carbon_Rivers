@@ -79,7 +79,7 @@ site_map <- ggplot() +
   geom_sf(data = qc_subset_sf, aes(fill = Region, label=RiverName, shape=Region), size = 3) +
   coord_sf(xlim = c(-82, -52), ylim = c(47, 55)) +
   scale_shape_manual(values=c(21,22,24))+
-  scale_fill_manual(values = colorramp5) +
+  scale_fill_manual(values = colorramp) +
   annotation_scale(location = "bl", width_hint = 0.5, text_cex = 1) +
   labs(y = "Latitude", x = "Longitude") +
   theme_minimal() +

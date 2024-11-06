@@ -14,7 +14,7 @@ create_scatters_ellipse <- function(data_points, data_ellipse, x, y, Region, cor
                    fill = {{ Region }},
                    color = {{ Region }}, group = {{ Region }}, shape = {{Region}}
   )) + 
-    geom_point(data=data_points, color = "black", size = 3, alpha = 1) +
+    geom_point(data=data_points, color = "black", size = 2, alpha = 1) +
     scale_shape_manual(values=c(21,22,24,21))+
     
     stat_ellipse(aes(color = Region), size = 1.5, show.legend = F) +
@@ -26,8 +26,8 @@ create_scatters_ellipse <- function(data_points, data_ellipse, x, y, Region, cor
       aes(label = paste(..r.label.., ..p.label.., sep = "~`,`~"), color = Region),
       r.accuracy = 0.01, p.accuracy = 0.01, show.legend = F
     ) +
-    scale_fill_manual(values = c(colorramp5,"black")) +
-    scale_color_manual(values = c(colorramp5,"black")) +
+    scale_fill_manual(values = c(colorramp,"black")) +
+    scale_color_manual(values = c(colorramp,"black")) +
     guides(fill = guide_legend(order = 1), color = guide_legend(order = 1)) # Adjusted the order argument
 }
 
@@ -59,7 +59,7 @@ scatter_Hg_C1
 # Apply Scatter 3
 scatter_byprod_subst <- create_scatters_ellipse(data_points=qc_subset, data_ellipse = qc_subset_overall,  
                                          x = Cgas_DOC_ratio, y = DMeHg_DHg_DMeHG_ratio, Region = Region, 
-                                         cor.position = c(10, 9, 8), label_left=0.05) +
+                                         cor.position = c(10, 9, 8), label_left=0) +
   theme(legend.position = "none") +
   labs(y = bquote("MeHg : Hg"), x = bquote(paste("(CO"[2] ~ "+ CH"[4] ~ ") : DOC ")),
     fill = "Region")  

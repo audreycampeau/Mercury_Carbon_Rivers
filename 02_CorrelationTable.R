@@ -52,4 +52,4 @@ extract_correlations <- function(data, x_var, y_var, region_col = "Region", regi
 print(correlation_table_all)
 
 # to save these tables to CSV files, uncomment the following lines:
-4# write.csv(correlation_table_1, "correlation_results.csv", row.names = FALSE)
+# write.csv(correlation_table_1, "correlation_results.csv", row.names = FALSE)

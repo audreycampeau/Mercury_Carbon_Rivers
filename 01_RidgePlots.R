@@ -12,11 +12,11 @@ DensityPlots <- function(x, y, dunn_1, dunn_2, dunn_3) { # Function to make the 
     color = {{ y }}
   )) +
     stat_density_ridges(geom = "density_ridges_gradient", calc_ecdf = TRUE, quantile_lines = TRUE, quantiles = 2) +
-    scale_fill_manual(values = alpha(c(colorramp5, "black"), 0.4)) +
-    scale_color_manual(values = c(colorramp5, "black")) +
-    annotate("text", x = Inf, y = Inf, label = {{ dunn_1 }}, color = colorramp5[1], hjust = 7.5, vjust = 1.5, size = 4) +
-    annotate("text", x = Inf, y = Inf, label = {{ dunn_2 }}, color = colorramp5[2], hjust = 5.5, vjust = 1.5, size = 4) +
-    annotate("text", x = Inf, y = Inf, label = {{ dunn_3 }}, color = colorramp5[3], hjust = 3.5, vjust = 1.5, size = 4) +
+    scale_fill_manual(values = alpha(c(colorramp, "black"), 0.4)) +
+    scale_color_manual(values = c(colorramp, "black")) +
+    annotate("text", x = Inf, y = Inf, label = {{ dunn_1 }}, color = colorramp[1], hjust = 7.5, vjust = 1.5, size = 4) +
+    annotate("text", x = Inf, y = Inf, label = {{ dunn_2 }}, color = colorramp[2], hjust = 5.5, vjust = 1.5, size = 4) +
+    annotate("text", x = Inf, y = Inf, label = {{ dunn_3 }}, color = colorramp[3], hjust = 3.5, vjust = 1.5, size = 4) +
     theme_minimal()+
     coord_flip()+
     theme(legend.position = "none", axis.title.x = element_blank())

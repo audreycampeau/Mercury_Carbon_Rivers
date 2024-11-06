@@ -53,7 +53,7 @@ lolipop= ggplot(correlation_table_all_2,
                   geom_point(aes(size = p_value_size_cat,shape=region), color = "black") +
                   geom_vline(xintercept = 0, linetype = "dashed", color = "black") +
   
-                  scale_fill_manual(values = c(colorramp5, "black")) +
+                  scale_fill_manual(values = c(colorramp, "black")) +
                   scale_shape_manual(values=c(21,22,24,23))+
                   scale_size_discrete(range = c(6, 2)) +
                   scale_x_continuous(limits=c(-0.8,0.8),breaks = seq(-1, 1, 0.2)) +

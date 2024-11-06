@@ -12,7 +12,7 @@ qc_subset <- readRDS(file = "Outputs/Data/qc_subset.rds")
 
 
 
-colorramp <- c("#FC4E07", "#00AFBB", "#E69F00" ) # Define Color ramp "#E7B800"
+colorramp <- c("#FC4E07",  "#E69F00" ,"#00AFBB") # Define Color ramp "#E7B800"
 
 #colorramp2 <- c("#0072B2", "#D55E00", "#999999") # Define Color ramp
 #colorramp3 <- c("#882255", "#56B4E9", "#F0E442") # Define Color ramp
