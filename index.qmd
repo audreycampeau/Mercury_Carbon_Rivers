@@ -42,7 +42,7 @@ data <- readRDS(file = "Outputs/Data/qc_subset.rds")
 
 
 # Define Color Ramp and theme
-colorramp5 <- c("#009E73", "#E69F00", "#882255") # Define Color ramp
+colorramp <- c("#FC4E07",  "#E69F00" ,"#00AFBB") # Define Color ramp
 theme_set(theme_bw(base_size = 16))
 
 #Present the dataset with interactivitiy
@@ -64,9 +64,9 @@ map=leaflet(data = data %>%
   addCircleMarkers(
     ~GPS_W, ~GPS_N, 
     radius=~5 , 
-    color= c(rep(colorramp5[2], 49 ),
-             rep(colorramp5[1],401),
-             rep(colorramp5[3],176)),
+    color= c(rep(colorramp[2], 49 ),
+             rep(colorramp[1],401),
+             rep(colorramp[3],176)),
     #label = ~htmlEscape(RiverName), 
     label = ~lapply(seq_len(nrow(data)), function(i) {
       htmltools::HTML(sprintf(
@@ -89,7 +89,7 @@ map=leaflet(data = data %>%
     fillOpacity = 0.8
   ) %>%
   addLegend("bottomright", 
-            colors = colorramp5,
+            colors = colorramp,
             labels = c("RR", "HM","EI"),
             title = "Region")
 map
@@ -204,7 +204,7 @@ lollipop= ggplot(correlation_table_all_2,
                   geom_point(aes(size = p_value_size_cat), color = "black", shape = 21) +
                   geom_vline(xintercept = 0, linetype = "dashed", color = "black") +
   
-                  scale_fill_manual(values = c(colorramp5, "black")) +
+                  scale_fill_manual(values = c(colorramp, "black")) +
                   scale_size_discrete(range = c(6, 2)) +
                   scale_x_continuous(limits=c(-0.8,0.8),breaks = seq(-1, 1, 0.2)) +
   
