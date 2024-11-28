@@ -111,24 +111,8 @@ print(d13C_CH4_Hist)
 
 
 
-# Combine Plots :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-quartz(width = 10, height = 8, pointsize = 12)
-ridgeplots <- ggarrange(
 
-  DOCHist, DHgHist, CO2Hist, CH4Hist,
-  C1Hist,  DMeHgHist, d13C_CO2_Hist, d13C_CH4_Hist,
-  C4Hist,  DHgRatioHist, MOXHist, AlphaHist,
-  align = "hv", ncol = 4, nrow = 3
-)
-
-
-#Combine ridgeplots with map
-ggarrange (site_map+theme(legend.position = "right"), ridgeplots, nrow=2, heights=c(1,2.5))
-
-quartz.save("Outputs/Figures/Map_RidgePlots.pdf", type = "pdf", dpi = 600)
-
-
-# Statistical test (Dunn's test) :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# Statistical test (Dunn's test) for difference in median ::::::::::::::::::
 library(dunn.test)
 library(multcompView)
 library(PMCMRplus)
@@ -137,7 +121,7 @@ dunn.test(qc_subset$d13C_CH4_Mean, g = qc_subset$Region, method = "bonferroni", 
 multcompLetters(get.pvalues(PMCMRplus::kwAllPairsDunnTest(qc_subset$d13C_CH4_Mean ~ qc_subset$Region, p.adjust = "bonf")), threshold = 0.05)
 
 
-# Levene's test to determine if there is a difference in variance :::::::::::::::::::::::::::::::::
+# Levene's test for difference in variance :::::::::::::::::::::::::::::::::
 library("car")
 leveneTest(C1 ~ Region, qc_subset,  method = "bonferroni")
 leveneTest(DOC_Mean ~ Region, qc_subset, p.adjust = "bonf")

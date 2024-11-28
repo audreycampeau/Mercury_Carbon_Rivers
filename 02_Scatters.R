@@ -1,6 +1,6 @@
 
 
-
+library(tidyverse)
 library(ggpmisc)
 formula <- y ~ x
 library(ggpubr)
@@ -14,7 +14,7 @@ create_scatters_ellipse <- function(data_points, data_ellipse, x, y, Region, cor
                    fill = {{ Region }},
                    color = {{ Region }}, group = {{ Region }}, shape = {{Region}}
   )) + 
-    geom_point(data=data_points, color = "black", size = 2, alpha = 1) +
+    geom_point(data=data_points, color = "black", size = 2, alpha = 0.7) +
     scale_shape_manual(values=c(21,22,24,21))+
     
     stat_ellipse(aes(color = Region), size = 1.5, show.legend = F) +
@@ -76,7 +76,7 @@ scatter_MeHg_CH4Mox <- create_scatters_ellipse(data_points=qc_subset, data_ellip
                                                cor.position = c(10, 9, 8), label_left=0) +
   theme(legend.position = "none") +
   labs(
-    y = bquote("DMeHg (ng L"^-1 ~ ")"), 
+    y = bquote("MeHg (ng L"^-1 ~ ")"), 
     x = bquote(paste("[CH"[4] ~ "+MOX] (mg L"^-1 ~ ")")),
     color = "Region") +
   scale_x_log10( breaks=c(0.001,0.01, 0.1), labels=c("0.001","0.01", "0.1") ) + 

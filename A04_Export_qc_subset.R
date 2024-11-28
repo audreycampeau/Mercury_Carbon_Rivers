@@ -13,10 +13,6 @@ qc_subset <- readRDS(file = "Outputs/Data/qc_subset.rds")
 
 
 colorramp <- c("#FC4E07",  "#E69F00" ,"#00AFBB") # Define Color ramp "#E7B800"
-
-#colorramp2 <- c("#0072B2", "#D55E00", "#999999") # Define Color ramp
-#colorramp3 <- c("#882255", "#56B4E9", "#F0E442") # Define Color ramp
-#colorramp4 <- c("#009E73", "#E69F00", "#666666") # Define Color ramp
 colorramp5 <- c("#AA4477", "#E69F00","#009E73") # Define Color ramp
 
 theme_set(theme_minimal(base_size = 14))
@@ -27,8 +23,6 @@ qc_subset$DMeHg_DHg_DMeHG_ratio=qc_subset$DMeHg_Mean /(qc_subset$DHg_Mean - qc_s
 
 #Calculate CH4 concentration plus MOX 
 qc_subset$CH4_plus_MOX=qc_subset$CH4_mgCL + qc_subset$MOX
-
-
 
 
 # reorder the factor region

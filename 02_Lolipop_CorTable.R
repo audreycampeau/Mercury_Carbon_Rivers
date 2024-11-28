@@ -77,23 +77,3 @@ lolipop
 
 
 
-# Make the combined plot with scatters and lolipop
-#quartz(width = 12, height = 8, pointsize = 12)
-
-scatters= ggarrange(scatter_Hg_DOC +theme_bw(base_size = 14)+ggtitle("Substrate Convergence"), 
-                    scatter_Hg_C1+theme_bw(base_size = 14), 
-                    scatter_byprod_subst+theme_bw(base_size = 14)+ggtitle("By-Product Convergence"), 
-                    scatter_MeHg_CH4Mox+theme_bw(base_size = 14),
-                    nrow = 2, ncol = 2, legend = "top",
-                    align = "hv",
-                    common.legend = T,
-                    widths = c(1, 1, 1),
-                    heights = c(1, 1),
-                    labels=c("B)", "C)", "D)", "E)")) # , labels=c("A)", "B)", "C)", "D)", "E)", "F)"))
-
-scatters
-
-
-quartz(width = 18, height =8, pointsize = 12)
-ggarrange(lolipop, scatters, ncol=2, labels=c("A)",NA))
-quartz.save("Outputs/Figures/Lolipop_scatters.pdf", type = "pdf", dpi = 600)
