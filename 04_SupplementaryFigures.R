@@ -1,5 +1,7 @@
 
 # Supplementary Figures 
+count(unique(filter(qc_subset, !is.na(DHg_Mean))), ID)
+
 
 # Make a Biplot of d13C-CO2 and d13C-CH4 with isotope fractionation lines.
 

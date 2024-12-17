@@ -52,8 +52,6 @@ datatable(data, options = list(pageLength = 5), filter="top") %>%
 
 # Map of the river sampling locations
 
-interactive version of the map in figure 1
-
 ```{r,warning=F,message=FALSE}
 
 map=leaflet(data = filter(data, !is.na(DHg_Mean))  %>% 

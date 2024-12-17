@@ -69,6 +69,9 @@ scatter_byprod_subst <- create_scatters_ellipse(data_points=qc_subset, data_elli
 
 scatter_byprod_subst
 
+range(qc_subset$Cgas_DOC_ratio, na.rm=T)*100
+range(qc_subset$DMeHg_DHg_DMeHG_ratio, na.rm=T)*100
+
 # Apply Scatter 4
 
 scatter_MeHg_CH4Mox <- create_scatters_ellipse(data_points=qc_subset, data_ellipse = qc_subset_overall,  
