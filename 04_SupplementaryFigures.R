@@ -4,14 +4,14 @@
 # Make a Biplot of d13C-CO2 and d13C-CH4 with isotope fractionation lines.
 
 d13C_Biplot= ggplot(
-                qc_subset,
-                aes(y = d13C_CO2_Mean, x = d13C_CH4_Mean, color = Region #, size = CH4_mgCL
+                qc_subset_overall,
+                aes(y = d13C_CO2_Mean, x = d13C_CH4_Mean, fill = Region #, size = CH4_mgCL
                     )) +
-                geom_point(aes(fill = Region), color = "black", size=3, shape = 21, alpha = 0.9) +
-                scale_fill_manual(values = colorramp) +
+                geom_point(color = "black", size=3, shape = 21, alpha = 0.9) +
+                scale_fill_manual(values = c(colorramp, "black")) +
                 geom_point(y = c(-8.5), x = c(-47), shape = "*", show.legend = F, size = 15, color = "black") + # The atmospheric δ13C-CO2 -8.5‰ and δ13C- CH4 -47.5‰
                 
-              geom_point(data=qc_subset[67,], color = "black", shape = "x", size = 4, alpha = 1) +
+              geom_point(data=qc_subset_overall[67,], color = "black", shape = "x", size = 4, alpha = 1) +
   
                 scale_x_continuous(limits = c(-120, -30)) +
                 scale_y_continuous(limits = c(-40, 00))+

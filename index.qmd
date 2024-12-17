@@ -56,7 +56,7 @@ interactive version of the map in figure 1
 
 ```{r,warning=F,message=FALSE}
 
-map=leaflet(data = data %>% 
+map=leaflet(data = filter(data, !is.na(DHg_Mean))  %>% 
               mutate_if(is.numeric, round, digits = 2)) %>%
   addTiles() %>%
   addProviderTiles("OpenTopoMap")%>% #Esri.WorldImagery
@@ -64,9 +64,9 @@ map=leaflet(data = data %>%
   addCircleMarkers(
     ~GPS_W, ~GPS_N, 
     radius=~5 , 
-    color= c(rep(colorramp[2], 49 ),
-             rep(colorramp[1],401),
-             rep(colorramp[3],176)),
+    color= c(rep(colorramp[2], 49 ), #HM
+             rep(colorramp[3],365), #RR
+             rep(colorramp[1],123)), #EI
     #label = ~htmlEscape(RiverName), 
     label = ~lapply(seq_len(nrow(data)), function(i) {
       htmltools::HTML(sprintf(
@@ -86,7 +86,7 @@ map=leaflet(data = data %>%
       direction = "auto"
     ),
     stroke = F,
-    fillOpacity = 0.8
+    fillOpacity = 1
   ) %>%
   addLegend("bottomright", 
             colors = colorramp,
