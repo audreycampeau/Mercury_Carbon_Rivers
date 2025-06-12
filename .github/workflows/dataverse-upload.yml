@@ -1,4 +1,4 @@
-yamlname: Upload to Borealis
+name: Upload to Borealis
 on:
   release:
     types: [created]
