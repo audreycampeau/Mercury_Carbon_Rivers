@@ -1,0 +1,21 @@
+yamlname: Upload to Borealis
+on:
+  release:
+    types: [created]
+  workflow_dispatch:  # Allows manual triggering from Actions tab
+
+jobs:
+  upload-to-borealis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Send repo to Borealis
+        uses: IQSS/dataverse-uploader@v1.6
+        with:
+          DATAVERSE_TOKEN: ${{secrets.DATAVERSE_TOKEN}}
+          DATAVERSE_SERVER: https://borealisdata.ca
+          DATAVERSE_DATASET_DOI: doi:YOUR_DATASET_DOI_HERE
+          DELETE: False
+          PUBLISH: False
