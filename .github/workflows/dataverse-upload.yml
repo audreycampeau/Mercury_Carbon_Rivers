@@ -16,6 +16,6 @@ jobs:
         with:
           DATAVERSE_TOKEN: ${{secrets.DATAVERSE_TOKEN}}
           DATAVERSE_SERVER: https://borealisdata.ca
-          DATAVERSE_DATASET_DOI: doi:YOUR_DATASET_DOI_HERE
+          DATAVERSE_DATASET_DOI: doi:10.5683/SP3/FCMJYR
           DELETE: False
           PUBLISH: False
